@@ -57,7 +57,22 @@ app.get('/notes', (req, res) =>
     res.sendFile(path.join(__dirname, './public/notes.html'))
 );
 
-
+//  DELETE Route for a note
+app.delete('/:noteid', (req, res) => {
+    const noteId = req.params.id;
+    readFromFile('./db.json')
+      .then((data) => JSON.parse(data))
+      .then((json) => {
+        // Make a new array of all tips except the one with the ID provided in the URL
+        const result = json.filter((app) => app.id!== noteId);
+  
+        // Save that array to the filesystem
+        writeToFile('./db.json', result);
+  
+        // Respond to the DELETE request
+        res.json(`Item ${noteId} has been deleted 🗑️`);
+      });
+  });
 
 app.listen(PORT, () =>
     console.log(`App listening at http://localhost:${PORT} 🚀`)
