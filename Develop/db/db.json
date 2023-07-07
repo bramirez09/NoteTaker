@@ -2,12 +2,12 @@
     {
         "title": "Test Title",
         "text": "Test text",
-        "note_id": ""
+        "id": ""
     },
     {
         "title": "new note",
         "text": "here is a new note\n",
-        "note_id": "b019e1ef-2d19-4711-88ad-66749333ff46"
+        "id": "b019e1ef-2d19-4711-88ad-66749333ff46"
     },
     {
         "title": "del note",

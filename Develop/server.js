@@ -1,7 +1,7 @@
 const express = require('express');
 const path = require('path');
 const { v4: uuidv4 } = require('uuid');
-const { readAndAppend, readFromFile } = require('./helpers/fsUtils');
+const { readAndAppend, readFromFile, writeToFile } = require('./helpers/fsUtils');
 
 
 //const api = require('challenges/NoteTaker/Develop/public/assets/js/index.js');
@@ -58,16 +58,16 @@ app.get('/notes', (req, res) =>
 );
 
 //  DELETE Route for a note
-app.delete('/:noteid', (req, res) => {
+app.delete('/:api/notes/id', (req, res) => {
     const noteId = req.params.id;
-    readFromFile('./db.json')
+    readFromFile('./db/db.json')
       .then((data) => JSON.parse(data))
       .then((json) => {
         // Make a new array of all tips except the one with the ID provided in the URL
-        const result = json.filter((app) => app.id!== noteId);
+        const result = json.filter((app) => app.id !== noteId);
   
         // Save that array to the filesystem
-        writeToFile('./db.json', result);
+        writeToFile('./db/db.json', result);
   
         // Respond to the DELETE request
         res.json(`Item ${noteId} has been deleted 🗑️`);
