@@ -6,10 +6,12 @@ The following project is a note taking application where a user can write and sa
 Upon opening the application is a user is presented with existing notes on the left-hand column and an empty field to enter new notes on the right-hand column. 
 
 ## Visuals
+![Alt text](Assets/notetakerdemo.png)
+
 
 ## Installation
 
-No extra installation is required for this application , please select link to be taken to application : 
+To run application use
 
 ## Usage
 
